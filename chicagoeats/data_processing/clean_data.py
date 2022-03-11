@@ -15,7 +15,8 @@ def clean_main_data(filename):
     final_df_lst = [final_df13, final_df15, final_df19]
     final_food_df = pd.concat(final_df_lst)
     
-    return final_food_df
+    final_food_df.to_csv(r'~/capp30122/proj-chicago-eats/chicagoeats/data/food_source_final.csv')
+    
 
 def create_year_df(filename):
     '''
