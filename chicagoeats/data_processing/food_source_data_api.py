@@ -2,6 +2,9 @@
 # Food Inspections Dataset Identifier: 4ijn-s7e5
 # Desired columns:  'Inspection ID', 'DBA Name', 'License #','Facility Type', 'Risk', 'Address', 'City', 'State','Zip','Inspection Date', 'Results', 'Latitude','Longitude'
 
+# Code to run in ipthon3: connector = food_source_data_api.DataPortalCollector()
+#                          connector.find_records()
+
 import pandas as pd
 from sodapy import Socrata
 import csv
