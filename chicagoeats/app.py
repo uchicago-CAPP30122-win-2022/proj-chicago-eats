@@ -1,8 +1,9 @@
-#Chicago Eats App
+# Chicago Eats App
 
 import argparse
-from data_processing.food_source_data_api import DataPortalCollector
 from data_processing.cenpy_fetch import cenpy_fetcher
+from data_processing.food_source_data_api import DataPortalCollector
+from data_processing.clean_data import process_data
 import os
 
 def main():
@@ -17,9 +18,12 @@ def main():
     if args.data:
         connector = DataPortalCollector()
         connector.find_records()
-        print("Food data has been downloaded into the data folder.")
+
+        process_data('data/food_source_data_set.csv')
+        print("The food data has been downloaded and processed.")
+
         cenpy_fetcher()
-        print('cenpy data has been downloaded into the data folder.')
+        print('cenpy data has been downloaded and processed.')
     if args.viz:
         cmd = "panel serve visualizations/viz.ipynb"
         os.system(cmd)
