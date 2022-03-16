@@ -2,6 +2,7 @@
 
 import pandas as pd
 
+
 def create_year_df(FOOD_FILE):
     '''
     
@@ -15,26 +16,26 @@ def create_year_df(FOOD_FILE):
     chi_food['facility_type'] = chi_food['facility_type'].str.replace(r'[^\w\s]+', ' ', regex=True)
     chi_food['inspection_date'] = pd.to_datetime(chi_food['inspection_date'], format='%Y-%m-%d')
 
-    s12_13 = chi_food.loc[(chi_food['inspection_date'] >= '2012-01-01') & (chi_food['inspection_date'] < '2013-12-31')]
-    s15_16 = chi_food.loc[(chi_food['inspection_date'] >= '2015-01-01') & (chi_food['inspection_date'] < '2016-12-31')]
-    s18_19 = chi_food.loc[(chi_food['inspection_date'] >= '2018-01-01') & (chi_food['inspection_date'] < '2019-12-31')]
+    yr12_13 = chi_food.loc[(chi_food['inspection_date'] >= '2012-01-01') & (chi_food['inspection_date'] < '2013-12-31')]
+    yr15_16 = chi_food.loc[(chi_food['inspection_date'] >= '2015-01-01') & (chi_food['inspection_date'] < '2016-12-31')]
+    yr18_19 = chi_food.loc[(chi_food['inspection_date'] >= '2018-01-01') & (chi_food['inspection_date'] < '2019-12-31')]
 
-    s12_13 = s12_13.drop_duplicates(['dba_name'], keep='first')
-    zero_license_13 = s12_13.loc[s12_13['license_'] == 0.0]
+    yr12_13 = yr12_13.drop_duplicates(['dba_name'], keep='first')
+    zero_license_13 = yr12_13.loc[yr12_13['license_'] == 0.0]
     zero_df_13 = zero_license_13.iloc[1: ]
-    df12_13 = s12_13.drop_duplicates(["license_"], keep='first')
+    df12_13 = yr12_13.drop_duplicates(["license_"], keep='first')
     df12_13_fin = pd.concat([zero_df_13, df12_13])
     
-    s15_16 = s15_16.drop_duplicates(['dba_name'], keep='first')
-    zero_license_16 = s15_16.loc[s15_16['license_'] == 0.0]
+    yr15_16 = yr15_16.drop_duplicates(['dba_name'], keep='first')
+    zero_license_16 = yr15_16.loc[yr15_16['license_'] == 0.0]
     zero_df_16 = zero_license_16.iloc[1: ]
-    df15_16= s15_16.drop_duplicates(["license_"], keep='first')
+    df15_16= yr15_16.drop_duplicates(["license_"], keep='first')
     df15_16_fin = pd.concat([zero_df_16, df15_16])
     
-    s18_19 = s18_19.drop_duplicates(['dba_name'], keep='first')
-    zero_license_19 = s18_19.loc[s18_19['license_'] == 0.0]
+    yr18_19 = yr18_19.drop_duplicates(['dba_name'], keep='first')
+    zero_license_19 = yr18_19.loc[yr18_19['license_'] == 0.0]
     zero_df_19 = zero_license_19.iloc[1: ]
-    df18_19 = s18_19.drop_duplicates(["license_"], keep='first') 
+    df18_19 = yr18_19.drop_duplicates(["license_"], keep='first') 
     df18_19_fin = pd.concat([zero_df_19, df18_19])
 
     return (df12_13_fin, df15_16_fin, df18_19_fin)
@@ -81,5 +82,7 @@ def merge_df(df, year):
     final_master_df = pd.concat([zero_df_final, final_df])
 
     return final_master_df 
+
+def 
 
 
