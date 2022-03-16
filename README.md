@@ -7,7 +7,7 @@
 The goal of this project is to visualize the relationship between demographic information, and the different kinds of food sources in Chicago.
 With tract level American Community Survey Data from the Census, and food inspection data from the City of Chicago, we created a dashboard that allows us to visualize these layers of data simultaneously. We also did some additional levels of analysis.
 
-Project Documentation: [documentation.pdf](documentation.pdf)
+Project Documentation: [proj-paper.pdf](proj-paper.pdf)
 
 ### Instructions
 
