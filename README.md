@@ -1,5 +1,7 @@
 # Chicago Eats
 
+![alt text](panel_dashboard.png "Visualization")
+
 ### Overview
 
 The goal of this project is to visualize the relationship between demographic information, and the different kinds of food sources in Chicago.
@@ -20,5 +22,3 @@ With tract level American Community Survey Data from the Census, and food inspec
 1. Run `python app.py --notebooks`. This will open Jupyter Notebooks in your browser.
 2. Navigate from `chicagoeats` → `analytics` module.
 3. Open `PPA.ipynb` and `zipcodeviz.ipynb` to explore.
-
-
