@@ -21,10 +21,12 @@ region_zip_lst = [north_zipcodes, west_zipcodes, downtown_zipcodes, south_zipcod
 
 def regions_by_year(region_zip_lst, year):
     '''
-    Creates a list of pandas dataframes of food sources based on Chicago regions (North, South, East, West, Downtown) 
+    Creates a list of food sources pandas dataframes based on Chicago regions (North, South, East, West, Downtown) 
     by a given year (2013, 2016, 2019)
+
     Inputs: region_zip_lst(list): a list of Chicago zipcodes sorted by region
-            year(int): a year taken from the master food_source_final.csv (2013, 2016, 2019)
+            year(int): a year taken from the food_source_final.csv (2013, 2016, 2019)
+
     Returns(list): a list of 5 dataframes, 1 for each region for the given year (ex: North_2013, South_2013, etc.)
     '''
     CLEAN_FOOD_FILE = '~/capp30122/proj-chicago-eats/chicagoeats/data/food_source_final.csv'
@@ -38,9 +40,11 @@ def regions_by_year(region_zip_lst, year):
 
 def region_category_by_year(region_zip_lst, year):
     '''
-    Creates dataframes of Chiacago regional food sources 
-    Inputs: region_zip_lst(list)
-            year(int)
+    Creates dataframes of Chiacago food categories based on region and year
+
+    Inputs: region_zip_lst(list): a list of Chicago zipcodes sorted by region
+            year(int): a year taken from the food_source_final.csv (2013, 2016, 2019)
+
     Returns(list) a list of lists of dataframes of Chicago regions divided by food source categories 
     (ex:north_13_restaurants, north_13_conv, etc.)
     '''
@@ -59,7 +63,10 @@ def region_category_by_year(region_zip_lst, year):
 def total_food_sources(region_zip_lst, year):
     '''
     Counts the total number of food sources for a Chiacago region for a given year.
-    Inputs( list of dataframes): region_categories
+
+    Inputs( list of lists): region_zip_lst(list): a list of Chicago zipcodes sorted by region
+            year(int): a year taken from the food_source_final.csv (2013, 2016, 2019)
+
     Returns(list): a list of the total number of food sources in a given year for each Chicago region. 
     '''
     total_length_lst = []
@@ -80,9 +87,12 @@ def total_food_sources(region_zip_lst, year):
     
 def category_percent(region_zip_lst, year):
     '''
-    Create a list of category percents for a Chicago region for a given year.
-    Inputs():
-    Returns(lst): a list of lists
+    Creates a list of category percents for a Chicago region for a given year.
+
+    Inputs( list of lists): region_zip_lst(list): a list of Chicago zipcodes sorted by region
+            year(int): a year taken from the food_source_final.csv (2013, 2016, 2019)
+    
+    Returns(lst): a list of lists of regional category percents (ex: north_19 = [0.5, 0.20, 0.5, 0.25])
     '''
     chi_regions= region_category_by_year(region_zip_lst, year)
     percent_lst = []
