@@ -12,6 +12,8 @@ def main():
                         help='Downloads and cleans all of the data used in the project')
     parser.add_argument('--viz', action='store_true',
                         help='Launches the Panel server so that it can be viewed in a web browser.')
+    parser.add_argument('--notebooks', action='store_true',
+                        help='Launches Jupyter so user can navigate to supplemental notebooks.')
 
     args = parser.parse_args()
 
@@ -24,8 +26,11 @@ def main():
 
         cenpy_fetcher()
         print('cenpy data has been downloaded and processed.')
-    if args.viz:
+    elif args.viz:
         cmd = "panel serve visualizations/viz.ipynb"
+        os.system(cmd)
+    elif args.notebooks:
+        cmd = "python -m notebook"
         os.system(cmd)
 
 if __name__ == '__main__':
