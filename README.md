@@ -3,7 +3,7 @@
 ### Overview
 
 The goal of this project is to visualize the relationship between demographic information, and the different kinds of food sources in Chicago.
-With tract level American Community Survey Data from the Census, and food inspection data from the City of Chicago, we created a dashboard that allows us to visualize these layers of data simultaneously.
+With tract level American Community Survey Data from the Census, and food inspection data from the City of Chicago, we created a dashboard that allows us to visualize these layers of data simultaneously. We also did some additional levels of analysis.
 
 ### Instructions
 
@@ -15,8 +15,10 @@ With tract level American Community Survey Data from the Census, and food inspec
       enter the following command: `python app.py --data`
    2. To launch interactive visualizations enter the the following command: `python app.py --viz`. This should print out a ocalhost address. Navigate to the address in your browser.
 
+
 ### To access supplemental visuals
-1. Navigate from `chicagoeats` → `visualizations` module.
-2. Open and run jupyter notebook `zipcodeviz.ipynb` for bar and pie graph visuals of Chicago regions and their food sources totals and category breakdown based on certain years.
-3. 
+1. Run `python app.py --notebooks`. This will open Jupyter Notebooks in your browser.
+2. Navigate from `chicagoeats` → `analytics` module.
+3. Open `PPA.ipynb` and `zipcodeviz.ipynb` to explore.
+
 
