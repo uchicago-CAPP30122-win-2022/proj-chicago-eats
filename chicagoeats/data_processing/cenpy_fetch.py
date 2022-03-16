@@ -5,18 +5,6 @@ Fetches and processes ACS data from the Cenpy API
 import cenpy
 import pandas as pd
 
-gdfs = []
-years = [2013, 2016, 2019]
-acs_variables = {
-'B01003_001E' : 'total_pop',
-'B19013_001E' : 'median_household_income',
-'B25077_001E' : 'median_home_value',
-'B03002_012E' : 'n_hispanic',
-'B02008_001E' : 'n_white',
-'B02009_001E' : 'n_black',
-'B02011_001E' : 'n_asian',
-'B17001_002E' : 'n_poverty'}
-
 def cenpy_fetcher():
     """
     Fetches, cleans, processes, and writes out to the data folder
@@ -28,6 +16,19 @@ def cenpy_fetcher():
         None
         Writes out file to data foler
     """
+
+    gdfs = []
+    years = [2013, 2016, 2019]
+    acs_variables = {
+        'B01003_001E' : 'total_pop',
+        'B19013_001E' : 'median_household_income',
+        'B25077_001E' : 'median_home_value',
+        'B03002_012E' : 'n_hispanic',
+        'B02008_001E' : 'n_white',
+        'B02009_001E' : 'n_black',
+        'B02011_001E' : 'n_asian',
+        'B17001_002E' : 'n_poverty'}
+
     for year in years:
         chi = cenpy.products.ACS(year).from_place('Chicago, IL', variables= [
             'B01003_001', 'B19013_001E', 'B25077_001E',
