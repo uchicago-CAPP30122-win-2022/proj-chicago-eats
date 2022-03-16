@@ -1,13 +1,9 @@
 # Chicago Eats
 
-README.txt: this file
+### Overview
 
-Packages:
-analytics 
-data
-data_processing
-notes
-visulizations
+The goal of this project is to visualize the relationship between demographic information, and the different kinds of food sources in Chicago.
+With tract level American Community Survey Data from the Census, and food inspection data from the City of Chicago, we created a dashboard that allows us to visualize these layers of data simultaneously.
 
 ### Instructions
 
@@ -19,7 +15,3 @@ visulizations
       enter the following command: `python app.py --data`
    2. To launch interactive visualizations enter the the following command: `python app.py --viz`. This should print out a
       localhost adress. Navigate to the address in your browser.
-
-
-   
-   
