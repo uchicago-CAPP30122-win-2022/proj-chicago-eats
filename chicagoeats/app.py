@@ -6,9 +6,10 @@ import os
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--data', help='Downloads and cleans all ofthe data used in the project')
-    parser.add_argument('--viz', help='Launches the Panel server so that it can be viewed \
-    in a web browser.')
+    parser.add_argument('--data', action='store_true',
+                        help='Downloads and cleans all ofthe data used in the project')
+    parser.add_argument('--viz', action='store_true',
+                        help='Launches the Panel server so that it can be viewed in a web browser.')
 
     args = parser.parse_args()
 
