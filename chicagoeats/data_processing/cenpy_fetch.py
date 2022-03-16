@@ -1,3 +1,7 @@
+"""
+Fetches and processes ACS data from the Cenpy API
+"""
+
 import cenpy
 import pandas as pd
 
@@ -14,6 +18,16 @@ acs_variables = {
 'B17001_002E' : 'n_poverty'}
 
 def cenpy_fetcher():
+    """
+    Fetches, cleans, processes, and writes out to the data folder
+    a parquet file of a multi-year dataframe.
+
+    Inputs:
+        None
+    Outputs:
+        None
+        Writes out file to data foler
+    """
     for year in years:
         chi = cenpy.products.ACS(year).from_place('Chicago, IL', variables= [
             'B01003_001', 'B19013_001E', 'B25077_001E',
