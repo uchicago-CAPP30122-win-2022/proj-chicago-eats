@@ -13,5 +13,10 @@ With tract level American Community Survey Data from the Census, and food inspec
 4. Interact with the command line:
    1. To re-run the process of fetching/cleaning the data(found in the 'data' directory) for the project
       enter the following command: `python app.py --data`
-   2. To launch interactive visualizations enter the the following command: `python app.py --viz`. This should print out a
-      localhost adress. Navigate to the address in your browser.
+   2. To launch interactive visualizations enter the the following command: `python app.py --viz`. This should print out a ocalhost address. Navigate to the address in your browser.
+
+### To access supplemental visuals
+1. Navigate from `chicagoeats` → `visualizations` module.
+2. Open and run jupyter notebook `zipcodeviz.ipynb` for bar and pie graph visuals of Chicago regions and their food sources totals and category breakdown based on certain years.
+3. 
+
