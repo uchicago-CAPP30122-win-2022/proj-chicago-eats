@@ -1,6 +1,7 @@
 # Imports and global variables
 
 import pandas as pd
+import geopandas as gpd
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -21,17 +22,20 @@ region_zip_lst = [north_zipcodes, west_zipcodes, downtown_zipcodes, south_zipcod
 
 def regions_by_year(region_zip_lst, year):
     '''
-    Creates a list of food sources pandas dataframes based on Chicago regions (North, South, East, West, Downtown) 
-    by a given year (2013, 2016, 2019)
+    Creates a list of food sources pandas dataframes based on
+    Chicago regions (North, South, East, West, Downtown) 
+    by a given year (2013, 2016, 2019).
 
-    Inputs: region_zip_lst(list): a list of Chicago zipcodes sorted by region
-            year(int): a year taken from the food_source_final.csv (2013, 2016, 2019)
+    Inputs:
+        region_zip_lst(list): a list of Chicago zipcodes sorted by region
+        year(int): a year taken from the food_source_final.csv (2013, 2016, 2019)
 
-    Returns(list): a list of 5 dataframes, 1 for each region for the given year (ex: North_2013, South_2013, etc.)
+    Returns(list): 
+        list of 5 dataframes, 1 for each region for the given year (ex: North_2013, South_2013, etc.)
     '''
-    CLEAN_FOOD_FILE = '~/capp30122/proj-chicago-eats/chicagoeats/data/food_source_final.csv'
+    CLEAN_FOOD_FILE = '../data/food.parquet'
     region_yr_lst = []
-    chi_food = pd.read_csv(CLEAN_FOOD_FILE)
+    chi_food = gpd.read_parquet(CLEAN_FOOD_FILE)
     for zipcodes in region_zip_lst:
         region_year_df = chi_food[chi_food.zip.isin(zipcodes)]
         region_year_df = region_year_df[region_year_df['year'] == year]
@@ -111,4 +115,3 @@ def category_percent(region_zip_lst, year):
             cat_percent = category_total/sum(region)
             percent_lst[i].append(cat_percent)
     return percent_lst
-   
